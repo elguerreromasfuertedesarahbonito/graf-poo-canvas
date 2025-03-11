@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+    <style>
+        canvas {
+            background: black;
+            display: block;
+            margin: 0 auto;
+        }
+        #restartButton {
+            display: none; /* Initially hidden */
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <button id="restartButton">Restart Game</button>
+    <script src="game.js"></script>
+    <script>
+        const restartButton = document.getElementById('restartButton');
+        restartButton.addEventListener('click', () => {
+            // Reset the game state
+            const game = new Game();
+            game.run();
+            restartButton.style.display = 'none'; // Hide the button after restarting
+        });
+
+        // Show the restart button when the game is over
+        function showRestartButton() {
+            restartButton.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
